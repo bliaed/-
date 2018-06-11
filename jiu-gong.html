@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九宫格闪烁</title>
+	<style>
+
+		.bar{
+			width:900px;
+			height: 80px;
+			margin: 0 auto 10px;
+		}
+		.btn{
+		    width: 400px;
+		    height: 80px;
+			font-size: 18px;
+			color: red;
+		    background-color: orange;
+			float: left;
+		}
+		.btns{
+		    width: 400px;
+		    height: 80px;
+			font-size: 18px;
+			color: red;
+		    background-color: orange;
+			float: right;
+		}
+		.jiugong{
+		    width: 200px;
+		    height: 200px;
+		    float: left;
+		    background-color: #cccccc;
+		}
+		.top , .center , .footer{
+		    width: 600px;
+		    height: 200px;
+		    position: relative;
+		    margin: 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+<div class="bar">
+	<button class="btn">开始闪烁，点一次就好</button>
+	<button class="btns">停止闪烁</button>
+</div>
+<div class="top">
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+</div>
+<div class="center">
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+</div>
+<div class="footer">
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+    <div class="jiugong"></div>
+</div>
+<script>
+var bc1 = document.getElementsByClassName("jiugong")[0];
+var bc2 = document.getElementsByClassName("jiugong")[1];
+var bc3 = document.getElementsByClassName("jiugong")[2];
+var bc4 = document.getElementsByClassName("jiugong")[3];
+var bc5= document.getElementsByClassName("jiugong")[4];
+var bc6 = document.getElementsByClassName("jiugong")[5];
+var bc7 = document.getElementsByClassName("jiugong")[6];
+var bc8 = document.getElementsByClassName("jiugong")[7];
+var bc9 = document.getElementsByClassName("jiugong")[8];
+var btn = document.getElementsByClassName("btn")[0];
+btn.onclick = function () {
+	cc(bc1);
+	cc(bc2);
+	cc(bc3);
+	cc(bc4);
+	cc(bc5);
+	cc(bc6);
+	cc(bc7);
+	cc(bc8);
+	cc(bc9);
+};
+function cc(bgc) {
+	setInterval(function () {
+	var num1 = Math.round(Math.random()*255).toString();
+	var num2 = Math.round(Math.random()*255).toString();
+	var num3 = Math.round(Math.random()*255).toString();
+	var num4 = (Math.round(Math.random()*10)/10).toString();         var color = "rgba("+num1+","+num2+","+num3+","+num4+")";
+	bgc.style.backgroundColor = color;
+},400);
+}
+var bts = document.getElementsByClassName("btns")[0];
+bts.onclick = function () {
+	window.location.href="";
+};
+</script>
+</body>
+</html>
