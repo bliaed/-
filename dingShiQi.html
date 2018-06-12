@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+        button{
+            width: 15%;
+            height: 100px;
+            float: left;
+            margin:100px 9%;
+        }
+        div{
+            width: 80%;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #cccccc;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始</button>
+<button id="btn2">暂停</button>
+<button id="btn3">结束</button>
+<div></div>
+<script>
+    var timenum = 0;
+    var timer = null;
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var div = document.getElementsByTagName("div")[0];
+    //创建dom节点
+    var pnode =  document.createElement("p");
+	btn1.onclick = function() {
+        //先清除定时器，再开启
+    	clearInterval(timer);
+        timer = window.setInterval(function () {
+            //获取dom元素的内容并填充，innerHtml获取整个元素，含内容
+            pnode.innerText = (timenum  + "毫秒");
+            timenum = timenum + 1;
+		},1);
+	};
+    btn2.onclick = function() {
+		clearInterval(timer);
+	};
+	//添加节点
+    btn3.onclick = function() {
+		clearInterval(timer);
+		timenum = 0;
+        pnode.innerText = "0毫秒";
+	};
+    div.appendChild(pnode);
+</script>
+</body>
+</html>
